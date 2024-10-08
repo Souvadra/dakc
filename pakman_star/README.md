@@ -25,7 +25,7 @@ Please specify the k-mer length at the time of building:
 
 For e.g: make ksize=32
 
-If ksize is not specified at the time of build, PaKman will build with default size of k=32.
+If ksize is not specified at the time of build, PaKman will build with default size of k=31.
 
 Note:
 * At present, PaKman supports k-mer lengths of k<=64.
