@@ -4,7 +4,7 @@ We have modified the original PakMan algorithm to use radix-sorting instead of q
 
 ## How to Run PakMan vs PakMan*
 
-If `-DFAST` variable is present in compile time, then `PakMan*` is executed. Otherwise, the executable is same as the original `PakMan` algorithm.
+If `-DFAST` flag is present during compilation, then `PakMan*` is executed. Otherwise, the executable is same as the original `PakMan` algorithm.
 
 ## How to Compile PakMan*
 
