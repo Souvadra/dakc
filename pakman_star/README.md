@@ -1,9 +1,27 @@
+# PakMan*: A Faster Version of PakMan
+
+We have modified the original PakMan algorithm to use radix-sorting instead of quicksort. This modification, along with some fine tuning of the program, bloat cleanup results in `PakMan*`, which has a $2\times$ faster $k$-mer counting kernel.
+
+## How to Run PakMan vs PakMan*
+
+If `-DFAST` variable is present in compile time, then `PakMan*` is executed. Otherwise, the executable is same as the original `PakMan` algorithm.
+
+## How to Compile PakMan*
+
+Type `make clean && make` to compile PakMan* 
+
+## How to execute PakMan*
+Below is the instruction to run PakMan* on a synthetic dataset, generated using our scripts.
+```
+srun -N <num_nodes> -n <total_cores> --cpu-bind=cores pakman -r 150 -c 50 -b 1000000000 -t 21 -n 100000 -f <input_fasta_file>
+```
+
+
+Below is the README file of the original PakMan repository, and not every detail below holds true right now since we modified the original source code.
+
 # PaKman: A Scalable Algorithm for Generating Genomic Contigs on Distributed Memory Machines
 
-We address the problem of performing large-scale genome assemblies on a distributed memory parallel computer.
-PaKman presents a solution for the two most time-consuming phases in the full genome assembly pipeline, namely, k-mer Counting and
-Contig Generation. A key aspect of our algorithm is its graph data structure (PaK-Graph), which comprises fat nodes (or what we call
-"macro-nodes") that reduce the communication burden during contig generation.
+We address the problem of performing large-scale genome assemblies on a distributed memory parallel computer. PaKman presents a solution for the two most time-consuming phases in the full genome assembly pipeline, namely, k-mer Counting and Contig Generation. A key aspect of our algorithm is its graph data structure (PaK-Graph), which comprises fat nodes (or what we call "macro-nodes") that reduce the communication burden during contig generation.
 
 ![alt text](https://github.com/pnnl/pakman/blob/master/img/PaKman_schema.png?raw=true)
 
@@ -13,17 +31,15 @@ PaKman has the following dependencies:
 * MPI library (preferably MPI-3 compatible)
 * C++14 (or greater) compliant compiler
 
-
 Note: 
-At this time, PaKman requires the input files to be in the FASTA format and utilizes single-end reads to generate the contigs. 
-We are working to extend the functionality to  perform scaffolding accepting paired-end reads as input. 
+At this time, PaKman requires the input files to be in the FASTA format and utilizes single-end reads to generate the contigs. We are working to extend the functionality to  perform scaffolding accepting paired-end reads as input. 
 
 
 ## Build: 
 ----------------
 Please specify the k-mer length at the time of building:
 
-For e.g: make ksize=32
+For e.g: `make ksize=32`
 
 If ksize is not specified at the time of build, PaKman will build with default size of k=31.
 
@@ -34,11 +50,11 @@ Note:
 
 ## Execute:
 ----------------
-mpiexec -np $procs $BINARY -f $INPUT -b $MAX_BATCH_SIZE -r $AVG_READ_LEN -c $COVERAGE -t $BUCKET_CUTOFF -n $MERGE_CUTOFF
+`mpiexec -np $procs $BINARY -f $INPUT -b $MAX_BATCH_SIZE -r $AVG_READ_LEN -c $COVERAGE -t $BUCKET_CUTOFF -n $MERGE_CUTOFF`
 
 For example:
 
-mpiexec -np 4 ./pkmer -f ~/string-graph/inputs/Ecoli_reads_80x.fasta -b 100000000 -r 100 -c 80 -t 21 -n 100000
+`mpiexec -np 4 ./pkmer -f ~/string-graph/inputs/Ecoli_reads_80x.fasta -b 100000000 -r 100 -c 80 -t 21 -n 100000`
 
 ## Mandatory input arguments to PaKman:
 ------------------------------
@@ -48,13 +64,6 @@ mpiexec -np 4 ./pkmer -f ~/string-graph/inputs/Ecoli_reads_80x.fasta -b 10000000
 4. -c <COVERAGE>: coverage of the input reads dataset
 5. -t <BUCKET_CUTOFF>: number of buckets to consider while determining the cutoff from the k-mer frequency histogram. Default value set to 21.
 6. -n <MERGE_CUTOFF>: number of nodes at which the iterative phase of merging macro-nodes is concluded, Default value set to 100,000.
-
-## Contact:
----------
-Please contact the following for any queries or support:
-
--Priyanka Ghosh, (pghscience@gmail.com)
-
 
 ## Publications:
 ---------------
