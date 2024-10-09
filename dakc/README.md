@@ -39,6 +39,7 @@ srun -N <num_nodes> -n <total_cores> --cpu-bind=cores dakc -f <input_file>
 │   │   ├── fqreader.hpp
 │   │   └── fqreader.cpp
 │   ├── kcounter (count the k-mers, Runtime: HCLIB Actor)
+│   │   ├── ska_sort.hpp
 │   │   ├── kcounter.hpp
 │   │   ├── kcounter.cpp
 │   └── main
