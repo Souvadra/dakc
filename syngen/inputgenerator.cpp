@@ -3,13 +3,12 @@
 #include <string> 
 
 #define N 5 // Number of files to generate
-
+#define START 20
 static const char bases[] = {'A', 'C', 'G', 'T', 'N'};
 
 inline char int2base(int x) {
   return bases[x];
 }
-
 
 int main() {
   // Seed the random number generator
@@ -24,9 +23,10 @@ int main() {
   std::string line, filename;
 
   for (int i = 0; i < N; i++) {
-    length = static_cast<uint64_t>(1) << (20 + i);
+    
+    length = static_cast<uint64_t>(1) << (START + i);
     curr_length = 0;
-    filename = "synthetic_" + std::to_string(length) + ".fa";
+    filename = "synthetic_" + std::to_string(START+i) + ".fa";
     
     // open a file for writing using the filename 
     FILE *file = fopen(filename.c_str(), "w");  
