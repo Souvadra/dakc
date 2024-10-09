@@ -1,7 +1,7 @@
 # Benchmarks to obtain $C_{node}$ and $B_{mem}$ parameters 
 
 ## Measuring $C_{node}$
-
+For a different machine, change the `const size_t cores_per_node` variable accordingly.
 ### Compile and Execution
 Ensure the processor supports `AVX512` extensions.
 ```
