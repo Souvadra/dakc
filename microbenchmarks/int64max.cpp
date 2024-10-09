@@ -13,16 +13,13 @@ void dense_scalar(const uint64_t* vec1, const uint64_t* vec2, uint64_t* out, siz
     __m512i result = _mm512_add_epi64(v1, v2);
     _mm512_storeu_si512(&out[i], result);
   }
-  /* Let's assume the input length will always be multiple of 8 */
-  // // Handle remaining elements
-  // for (; i < len; i++) {
-  //   out[i] = vec1[i] + vec2[i];
-  // }
+  /* We assume the input length will always be multiple of 8 */
 }
 
 int main() {
   const size_t TRIALS = 32000000;
   const size_t len = 1024;
+  const size_t cores_per_node = 24;
   std::vector<uint64_t> vec1(len, 0xFFFFFFFFFFFFFFFF);
   std::vector<uint64_t> vec2(len, 0xFFFFFFFFFFFFFFFF);
   std::vector<uint64_t> out(len);
@@ -47,8 +44,12 @@ int main() {
   /* I want number of operations done per second printed out */
   // double cycles = end1 - start1;
   double ops = len * trials;
-  double ops_per_cycle = (ops / time) / (1024 * 1024 * 1024);
+  double scaling = static_cast<double>(cores_per_node);
+  double ops_per_cycle = scaling * (ops / time) / (1024 * 1024 * 1024);
   std::cout << "Performance: " << ops_per_cycle << " Giga Ops" <<  std::endl;
 
   return 0;
 }
+
+// Compiler must support AVX512
+// Compile instrution: g++ -std=c++20 -O3 -march=native int64max.cpp
