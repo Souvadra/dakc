@@ -24,15 +24,19 @@ def inputsize(m, n, P): # Output is in Bytes
 
 # sorting complexity (hybrid sorting)
 def sortcomp(x, k):
-  comparisonsort = x * max(log2(x), 1)
+  # x is the number of kmers to sort 
+  # each kmer needs kmerbytes(k) bytes
+  # hence total bytes to sort = x * kmerbytes(k)
   radixsort = x * kmerbytes(k)
-  return min(comparisonsort, radixsort)
+  return radixsort
 
 # number of cache misses in the hybrid sorting
 def sortcomm(x, Z, L, k, A2):
-  term1 = kmerbytes(k)
-  # term1 =  logZ(Z, x * kmerbytes(k)) # kmerbytes(k)
-  return (A2 * (1 + ((x * term1 / L))))
+  # x -> amount of data in bytes 
+  # radixsort will parse the data kmerbytes(k) times
+  # each parsing causes (1 + (x / L)) cache misses
+  # hence total cache misses = A2 * kmerbytes(k) * (1 + (x / L))
+  return (A2 * kmerbytes(k) * (1 + (x / L)))
 
 # Phase 1 computation:
 def t1comp(m, n, P, cnode):
