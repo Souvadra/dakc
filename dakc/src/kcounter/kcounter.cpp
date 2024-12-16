@@ -346,11 +346,6 @@ void kmercounter::perform_kcount() {
       curr_count++;
     } else {
       idx = binary_search(*heavydbg, kmer, left, right);
-      // int idx2 = binary_search_vanilla(*heavydbg, kmer, high_freq_size);
-
-      // if (idx != idx2) {
-      //   std::cout << "left: " << left << " right: " << right  << " idx: " << idx << " idx2: " << idx2 << " kmer: " << kmer << std::endl;
-      // }
       
       if (__builtin_expect(idx != -1, 0)) {
         (*heavydbg)[idx].count += curr_count;
@@ -369,6 +364,18 @@ void kmercounter::perform_kcount() {
       curr_kmer = (*vectordbg)[i];
       curr_count = 1;
     }
+  }
+
+  /* deal with the last k-mer */
+  idx = binary_search(*heavydbg, curr_kmer, left, right);
+  if (__builtin_expect(idx != -1, 0)) {
+    (*heavydbg)[idx].count += curr_count;
+    #ifdef BENCHMARK
+    binary_search_hit++;
+    #endif
+  } else {
+    (*lightdbg)[low_freq_size] = {curr_kmer, curr_count};
+    low_freq_size++;
   }
 
   /* Now, (*lightdbg) and heavydbg are two sorted arrays that contain all the k-mers 
@@ -398,6 +405,10 @@ void kmercounter::perform_kcount() {
       curr_count = 1;
     }
   }
+
+  /* deal with the last k-mer */
+  (*lightdbg)[low_freq_size] = {curr_kmer, curr_count};
+  low_freq_size++;
 
   /* Now, just query sorted (*lightdbg) array to get all the k-mers and their counts */
   #endif
