@@ -345,7 +345,7 @@ void kmercounter::perform_kcount() {
     if (kmer == curr_kmer) {
       curr_count++;
     } else {
-      idx = binary_search(*heavydbg, kmer, left, right);
+      idx = binary_search(*heavydbg, curr_kmer, left, right);
       
       if (__builtin_expect(idx != -1, 0)) {
         (*heavydbg)[idx].count += curr_count;
@@ -361,7 +361,7 @@ void kmercounter::perform_kcount() {
         }
 
       }
-      curr_kmer = (*vectordbg)[i];
+      curr_kmer = kmer;
       curr_count = 1;
     }
   }
@@ -401,7 +401,7 @@ void kmercounter::perform_kcount() {
         (*lightdbg).resize(2 * low_freq_size);
       }
 
-      curr_kmer = (*vectordbg)[i];
+      curr_kmer = kmer;
       curr_count = 1;
     }
   }
