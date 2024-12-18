@@ -2,7 +2,7 @@
 #include <random> 
 #include <string> 
 
-#define N 5 // Number of files to generate
+#define N 2 // Number of files to generate
 #define START 20
 static const char bases[] = {'A', 'C', 'G', 'T', 'N'};
 

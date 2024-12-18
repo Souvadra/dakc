@@ -89,6 +89,9 @@ void kmercounter::read_till_buf_max(uint64_t &read_idx,
         get_kmers(kmer_send_buf, &base_vec[left_idx], (i - left_idx), kmers_in_buffer);
         left_idx = i + 1;
       }
+      if (__builtin_expect(base_vec[i] == 0xF0, 0)) {
+        break; /* M detected, exit this for loop */
+      }
     }
 
     if (left_idx < READLEN - 1) {
