@@ -16,12 +16,12 @@ The user can run the `fq2txtmaker.sh` script to generate the header removed inpu
 - `HITTER`: If `HITTER == 0`, then the $L_3$ aggregation protocol is not performed, and vice versa.
 - `BIGKSIZE`: `2 x BIGKSIZE` is the $C_2$ parameter size, mentioned in the paper.
 - `KCOUNT_BUCKET_SIZE`: The value of this parameter determines $C_3$ parameter value. 
-- `BENCHMARK`: If present, the program will generate statistics regarding the program behavior and output.
+- `BENCHMARK`: If present, the program will generate statistics regarding the program's behavior and output.
 
 ## How to compile
 
 Open the Makefile and update `COMPILETIMEVARS` accordingly. 
-[Note: The user does not need to change anything for executing `DAKC` on synthetic datasets generated using data generation scripts provided to the user.]
+[**Note**: The user does not need to change anything for executing `DAKC` on synthetic datasets generated using data generation scripts provided to the user.]
 
 Type `make clean && make` to compile DAKC.
 
@@ -30,7 +30,7 @@ Type `make clean && make` to compile DAKC.
 srun -N <num_nodes> -n <total_cores> --cpu-bind=cores dakc -f <input_file>
 ```
 
-Note: we recommend creating one process per physical core of the CPU for optimal performance. 
+**Note**: we recommend creating one process per physical core of the CPU for optimal performance. 
 In the above `srun` command, `<total_cores>` should be the total number of physical cores present in all the nodes being used for the execution.
 
 ## Directory structure:
