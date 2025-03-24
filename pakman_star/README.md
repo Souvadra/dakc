@@ -18,11 +18,11 @@ Below are the instructions for running PakMan* on a synthetic dataset generated 
 srun -N <num_nodes> -n <total_cores> --cpu-bind=cores pakman -r 150 -c 50 -b 1000000000 -t 21 -n 100000 -f <input_fasta_file>
 ```
 
-## GitHub README of Original PakMan repository
+#
 
 Below is the README file of the original PakMan repository. 
 Not every detail below holds right now since we modified the source code.
-However, it still works as an excellent resource to understand the use of PakMan software
+However, it still works as an excellent resource to understand the use of PakMan software.
 
 # PaKman: A Scalable Algorithm for Generating Genomic Contigs on Distributed Memory Machines
 
