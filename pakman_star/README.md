@@ -1,23 +1,28 @@
 # PakMan*: A Faster Version of PakMan
 
-We have modified the original PakMan algorithm to use radix-sorting instead of quicksort. This modification, along with some fine tuning of the program, bloat cleanup results in `PakMan*`, which has a $2\times$ faster $k$-mer counting kernel.
+PakMan is a short-read genome assembly algorithm originally published by Ghosh et. al. at IPDPS 2019 conference. 
+In this repository, we have modified the original PakMan algorithm to use radix-sorting instead of quicksort. 
+This modification and some performance fine-tuning result in `PakMan*`, which has a $2\times$ faster $k$-mer counting kernel.
 
 ## How to Run PakMan vs PakMan*
 
-If `-DFAST` flag is present during compilation, then `PakMan*` is executed. Otherwise, the executable is same as the original `PakMan` algorithm.
+If `-DFAST` flag is present during compilation, then `PakMan*` is executed. Otherwise, the executable is the same as the original `PakMan` algorithm.
 
 ## How to Compile PakMan*
 
 Type `make clean && make` to compile PakMan* 
 
 ## How to execute PakMan*
-Below is the instruction to run PakMan* on a synthetic dataset, generated using our scripts.
+Below are the instructions for running PakMan* on a synthetic dataset generated using our scripts.
 ```
 srun -N <num_nodes> -n <total_cores> --cpu-bind=cores pakman -r 150 -c 50 -b 1000000000 -t 21 -n 100000 -f <input_fasta_file>
 ```
 
+## GitHub README of Original PakMan repository
 
-Below is the README file of the original PakMan repository, and not every detail below holds true right now since we modified the original source code.
+Below is the README file of the original PakMan repository. 
+Not every detail below holds right now since we modified the source code.
+However, it still works as an excellent resource to understand the use of PakMan software
 
 # PaKman: A Scalable Algorithm for Generating Genomic Contigs on Distributed Memory Machines
 
