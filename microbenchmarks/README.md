@@ -5,7 +5,7 @@ For a different machine, change the `const size_t cores_per_node` variable accor
 ### Compile and Execution
 Ensure the processor supports `AVX512` extensions.
 ```
-g++ -std=c++20 -O3 -march=native int64max.cpp -o int64max
+g++ -std=c++2a -O3 -march=native int64max.cpp -o int64max
 ./int64max
 ```
 ### Sample Output
