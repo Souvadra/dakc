@@ -6,6 +6,7 @@ Each directory contains a separate README file describing how to compile, modify
 ## Directory Structure
 
 - **/dakc**: Distributed-memory asynchronous $k$-mer counting implementation of `DAKC` algorithm.
+- **/analytical_model**: Analytical model for distributed-mmemory $k$-mer counting. 
 - **/microbenchmarks**: Benchmark programs used to obtain system parameters for modeling asynchronous $k$-mer counting on supercomputers.
 - **/pakman_star**: Faster version of PakMan algorithm (obtained from the original GitHub repository), a state-of-the-art distributed memory short-read genome assembly toolkit.
 - **/syngen**: Software to generate synthetic datasets used in the article. 
