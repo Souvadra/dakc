@@ -3,6 +3,8 @@
 This is the global repository of all algorithms and software developed for the IPDPS 2025 article on asynchronous, distributed-memory $k$-mer counting algorithm. 
 Each directory contains a separate README file describing how to compile, modify, and execute each software. 
 
+**Link to the article**: <will be provided once IPDPS releases its 2025 conference proceedings> 
+
 ## Directory Structure
 
 - **/dakc**: Distributed-memory asynchronous $k$-mer counting implementation of `DAKC` algorithm.
