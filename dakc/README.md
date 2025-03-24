@@ -30,7 +30,6 @@ srun -N <num_nodes> -n <total_cores> --cpu-bind=cores dakc -f <input_file>
 ## Directory Structure:
 ```tree
 .
-├── dummy_main.cpp (simple code to test the serial parts of the code)
 ├── src 
 │   ├── common 
 │   │   └── common.hpp (header file with definitions and classes used by all the kernels)
