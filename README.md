@@ -1,10 +1,11 @@
 # Asynchronous Distributed Memory Parallel $k$-mer counting Algorithm
 
-This is the global repository of all the software developed by the authors. Each directory contains a seperate README file.
+This is the global repository of all algorithms and software developed for the IPDPS 2025 article on asynchronous, distributed-memory $k$-mer counting algorithm. 
+Each directory contains a separate README file describing how to compile, modify, and execute each software. 
 
-## Directory Structure and Explanation
+## Directory Structure
 
-- **/dakc**: Directory for the the asynchronous $k$-mer counting implementation of `DAKC`.
-- **/microbenchmarks**: Benchmark programs used to obtain system parameters for modeling asynchronous $k$-mer counting in distributed memory.
-- **/pakman_star**: Cleaned up and faster version of PakMan (obtained from the original GitHub repository).
-- **/syngen**: Programs used to generated synthetic datasets used in our paper.
+- **/dakc**: Distributed-memory asynchronous $k$-mer counting implementation of `DAKC` algorithm.
+- **/microbenchmarks**: Benchmark programs used to obtain system parameters for modeling asynchronous $k$-mer counting on supercomputers.
+- **/pakman_star**: Faster version of PakMan algorithm (obtained from the original GitHub repository), a state-of-the-art distributed memory short-read genome assembly toolkit.
+- **/syngen**: Software to generate synthetic datasets used in the article. 
