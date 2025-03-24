@@ -30,6 +30,9 @@ Type `make clean && make` to compile DAKC.
 srun -N <num_nodes> -n <total_cores> --cpu-bind=cores dakc -f <input_file>
 ```
 
+Note: we recommend creating one process per physical core of the CPU for optimal performance. 
+In the above `srun` command, `<total_cores>` should be the total number of physical cores present in all the nodes being used for the execution.
+
 ## Directory structure:
 ```tree
 .

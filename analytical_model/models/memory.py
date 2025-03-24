@@ -3,6 +3,7 @@ This notebook is to analytically show the overhead of message aggregation
 protocols used in our \kmer counting workload.
 '''
 from defaultplot import *
+from params import *
 from math import *
 from matplotlib import pyplot as plt
 import numpy as np
@@ -59,19 +60,6 @@ def kmermem(reads, readlen, k, p, cov):
   output_bytes = reads * (readlen - k + 1) * kmerbytes(k)
   return (input_bytes + output_bytes) / p
 
-# Some real parameters
-c0 = 10000
-c1 = 1024
-c2 = 32
-c3 = 10000
-k = 31
-p = 1024
-
-reads = 1431655750
-readlen = 150
-cov = 50
-
-p = 256
 x = []
 ykmr = []
 
