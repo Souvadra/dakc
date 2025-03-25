@@ -20,9 +20,8 @@ srun -N <num_nodes> -n <total_cores> --cpu-bind=cores pakman -r 150 -c 50 -b 100
 
 #
 
-Below is the README file of the original PakMan repository. 
-Not every detail below holds right now since we modified the source code.
-However, it still works as an excellent resource to understand the use of PakMan software.
+Below is an excerpt from the README file of the original PakMan repository, which serves as an excellent resource for understanding the usage of the PakMan toolkit. 
+For more information, please visit the [original GitHub repository of PakMan](https://github.com/pnnl/pakman).
 
 # PaKman: A Scalable Algorithm for Generating Genomic Contigs on Distributed Memory Machines
 
@@ -69,21 +68,3 @@ For example:
 4. -c <COVERAGE>: coverage of the input reads dataset
 5. -t <BUCKET_CUTOFF>: number of buckets to consider while determining the cutoff from the k-mer frequency histogram. Default value set to 21.
 6. -n <MERGE_CUTOFF>: number of nodes at which the iterative phase of merging macro-nodes is concluded, Default value set to 100,000.
-
-## Publications:
----------------
-1) Ghosh, Priyanka, Sriram Krishnamoorthy, and Ananth Kalyanaraman. "PaKman: A Scalable Algorithm for Generating Genomic Contigs on Distributed Memory Machines." IEEE Transactions on Parallel and Distributed Systems (TPDS) vol. 32, no. 5, pp. 1191-1209, 2021. DOI: 10.1109/TPDS.2020.3043241. 
-
-2) Ghosh, Priyanka, Sriram Krishnamoorthy, and Ananth Kalyanaraman. "PaKman: Scalable Assembly of Large Genomes on Distributed Memory Machines." In 2019 IEEE International Parallel and Distributed Processing Symposium (IPDPS), pp. 578-589. IEEE, 2019.
-
-## License:
------------
-This project is licensed under the BSD License, see LICENSE file for details.
-
-## Acknowledgments:
-------------------
-This research used resources of the NERSC Office of Science User Facility supported by U.S. DOE under Contract No. DE-AC02-05CH11231. 
-This work was supported in part by U.S. Department of Energy, Office of Science, Office of Advanced Scientific Computing Research 
-under award number 63823. Pacific Northwest National Laboratory is operated by Battelle for DOE under Contract DE-AC05-76RL01830. 
-The research is in parts supported by U.S. NSF grants CCF 1815467, OAC 1910213, and CCF 1919122 to Washington State University.
-
