@@ -75,6 +75,19 @@ y1dtotal = []
 y2dtotal = []
 y3dtotal = []
 
+# Paramters Used
+c0 = 10000
+c1 = 1024
+c2 = 32
+c3 = 10000
+k = 31
+
+reads = 1431655750
+readlen = 150
+cov = 50
+
+p = 384
+
 while (p <= 2**14):
   # All memory is in bytes
 
